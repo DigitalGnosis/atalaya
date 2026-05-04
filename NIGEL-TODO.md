@@ -17,22 +17,14 @@ Covers:
 - Logo (wordmark + icon variants)
 - Iconography style (outline vs filled, corner radius)
 
-### 2. Pick the dogfood phone
+### 2. Confirm the dogfood phone (30 seconds)
 
-Which old phone from your drawer becomes the first Atalaya test device.
-
-- Pixel 6 or newer is ideal
-- Android 8+ with at least 4 GB RAM is the floor
-- Tell Forge what you've got and we lock it in
-
-### 3. Crash reporting tool — yes/no
-
-Forge proposed: **self-hosted Sentry on dg-core, opt-in only**. Privacy-first — default install emits zero crash reports.
-
-Yes → ADR-0012 lands. No → say what you'd prefer (or skip entirely).
+Working assumption per ADR-0013: **Samsung Galaxy S21**. Physically check your drawer when convenient — confirm it's actually an S21 and not a different model. Reply to Forge with the actual model name. If it's something different, we supersede ADR-0013 with the real model. The S21 is a great test target either way (Snapdragon 888 NPU + Samsung's aggressive OEM-kill behavior = a stress test that exercises everything).
 
 ## Locked recently
 
+- ✅ First dogfood device — Galaxy S21 (pending physical confirmation) (ADR-0013)
+- ✅ Crash reporting — self-hosted Sentry on dg-core, opt-in only (ADR-0012)
 - ✅ Signing key custody — Bitwarden Secrets Manager, DG-Shared project (ADR-0011)
 - ✅ Mesh strategy — Headscale + WireGuard, branded "Atalaya Mesh" (ADR-0010)
 - ✅ Federated package strategy (ADR-0009)
@@ -53,6 +45,7 @@ Yes → ADR-0012 lands. No → say what you'd prefer (or skip entirely).
 - Writing real code starting Phase 1 Step 3 (vertical slice 1: first Compose screen with BaseViewModel)
 - Filling M3 CameraX research stub before Step 5
 - Generating the gradle wrapper jar (offered to do this from dg-core if Java 17+ is available)
+- Spinning up Sentry on dg-core when Phase 1 Step 10 lands
 - Engineering work through Step 11 release
 
 You're not blocking any of this.

@@ -28,3 +28,5 @@ We use the [Michael Nygard ADR template](https://cognitect.com/blog/2011/11/15/d
 | 0009 | [Federated package strategy](ADR-0009-federated-package-strategy.md) | accepted | DG ecosystem context |
 | 0010 | [Mesh strategy — Headscale + WireGuard-Android](ADR-0010-mesh-strategy.md) | accepted (Phase 2 implementation) | Founder constraint: no Tailscale Inc dependency |
 | 0011 | [APK signing key custody — BWS DG-Shared](ADR-0011-signing-key-custody.md) | accepted | Pre-release lock-in |
+| 0012 | [Crash reporting — self-hosted Sentry on dg-core, opt-in](ADR-0012-crash-reporting.md) | accepted | Pre-Step-10 lock-in |
+| 0013 | [First dogfood device — Galaxy S21](ADR-0013-dogfood-device.md) | accepted (pending physical confirmation) | Founder's drawer phone |
