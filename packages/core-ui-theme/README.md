@@ -49,7 +49,7 @@ Tracked as an open question in [`docs/phase-1/README.md`](../../docs/phase-1/REA
 ```
 packages/core-ui-theme/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/main/kotlin/dev/digitalgnosis/atalaya/ui/theme/
     ├── AtalayaTheme.kt
     ├── Colors.kt             # light + dark schemes

@@ -46,6 +46,7 @@ Ship a working Atalaya node — a single Android phone running the watcher daemo
 | 0007 | Min SDK 26, target SDK 35, sticky FGS with camera\|microphone | ✅ accepted | [`decisions/ADR-0007-min-sdk-and-service.md`](decisions/ADR-0007-min-sdk-and-service.md) |
 | 0008 | DI — Hilt | ✅ accepted | [`decisions/ADR-0008-di-hilt.md`](decisions/ADR-0008-di-hilt.md) |
 | 0009 | Federated package strategy | ✅ accepted | [`decisions/ADR-0009-federated-package-strategy.md`](decisions/ADR-0009-federated-package-strategy.md) |
+| 0010 | Mesh strategy — Headscale + WireGuard (Phase 2 impl) | ✅ accepted | [`decisions/ADR-0010-mesh-strategy.md`](decisions/ADR-0010-mesh-strategy.md) |
 
 ## Module specs
 

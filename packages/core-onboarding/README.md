@@ -45,7 +45,7 @@ Hints, tutorials, and first-run experience primitives. The mechanism — apps ow
 ```
 packages/core-onboarding/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/main/kotlin/dev/digitalgnosis/atalaya/onboarding/
     ├── Hint.kt
     ├── HintScope.kt

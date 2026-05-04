@@ -49,7 +49,7 @@ The natural-language rule engine. Takes an `Observation` and a `List<Rule>`, dec
 ```
 packages/core-rules/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/main/
     ├── kotlin/dev/digitalgnosis/atalaya/rules/
     │   ├── RuleEngine.kt

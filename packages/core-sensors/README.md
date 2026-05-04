@@ -41,7 +41,7 @@ This module is intentionally interface-heavy. Implementations stay in apps so pl
 ```
 packages/core-sensors/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/main/kotlin/dev/digitalgnosis/atalaya/sensors/
     ├── CameraSensor.kt           # interface
     ├── SensorMetadata.kt

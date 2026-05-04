@@ -44,7 +44,7 @@ The inference abstraction. Pluggable backends for vision and text inference. Pha
 ```
 packages/core-ml/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2 — includes NDK setup for llama.rn .so
+├── build.gradle.kts
 └── src/main/
     ├── kotlin/dev/digitalgnosis/atalaya/ml/
     │   ├── VisionInference.kt           # interface

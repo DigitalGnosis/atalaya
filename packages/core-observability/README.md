@@ -61,7 +61,7 @@ Telemetry is **opt-in only.** The default install emits zero spans externally. A
 ```
 packages/core-observability/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/main/kotlin/dev/digitalgnosis/atalaya/observability/
     ├── Tracer.kt              # interface
     ├── Logger.kt              # interface

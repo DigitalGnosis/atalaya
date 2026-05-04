@@ -47,7 +47,7 @@ Without this, every screen reinvents the same card layout. Drift creeps in. Upda
 ```
 packages/core-ui-components/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/main/kotlin/dev/digitalgnosis/atalaya/ui/components/
     ├── cards/
     │   ├── AtalayaCard.kt

@@ -42,7 +42,7 @@ Phase 3+ adds audio, contact, motion, presence, keypad, and siren roles to this 
 ```
 apps/node/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2 deliverable
+├── build.gradle.kts
 ├── src/main/
 │   ├── AndroidManifest.xml
 │   ├── kotlin/dev/digitalgnosis/atalaya/node/
@@ -62,4 +62,4 @@ apps/node/
 └── src/test/kotlin/
 ```
 
-This layout is illustrative. Phase 1 Step 2 commits the real Gradle setup.
+This layout is illustrative. The Gradle setup ships in this commit.

@@ -49,7 +49,7 @@ The wire types Atalaya components exchange. The single source of truth for messa
 ```
 packages/core-protocol/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/commonMain/kotlin/dev/digitalgnosis/atalaya/protocol/
     ├── Observation.kt
     ├── Alert.kt

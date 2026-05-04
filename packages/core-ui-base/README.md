@@ -57,7 +57,7 @@ Code in this module is ported from [Bitwarden Android](https://github.com/bitwar
 ```
 packages/core-ui-base/
 ├── README.md
-├── build.gradle.kts          # Phase 1 Step 2
+├── build.gradle.kts
 └── src/main/kotlin/dev/digitalgnosis/atalaya/ui/base/
     ├── BaseViewModel.kt              # ports Bitwarden's
     ├── BackgroundEvent.kt
