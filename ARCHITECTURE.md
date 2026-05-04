@@ -19,6 +19,45 @@ Like Supabase: you can use the cloud version, or run the same code on your own s
 
 ---
 
+## Atalaya in the Digital Gnosis ecosystem
+
+Atalaya is one product in a family. Digital Gnosis already ships:
+
+- **Watchman** — DevOps monitoring (production)
+- **Connect** — federated subscription client for DG sovereign machines (Android)
+- **Route 33** — internal driver operations platform (Android)
+- **DG Portal** — order management + catalog (production)
+- **dg-spine** — per-machine FastAPI server serving typed Claude Code content
+- **CipherWare** — central observability spine (SQLite at `/opt/dg-middleware/data/cipherware.db`)
+- **Dispatch** — voice intercom system over Tailscale + GPU TTS
+
+Atalaya plugs into this ecosystem rather than reinventing infrastructure:
+
+- **Observability** — `core-observability` consumes the existing `cipherware-sdk-android` published library. Atalaya spans land in the same SQLite that every other DG service uses, viewable through the same `cipherware` CLI and CipherWare Viewer web UI.
+- **Alert transport (Phase 2+)** — `DispatchTransport` will be one of the `AlertTransport` implementations. Atalaya alerts can fire through Nigel's earbuds the same way agent updates already do.
+- **Hub-side networking** — Phase 2's hub deploys onto dg-core alongside other DG services, indexed in `dg-helm`.
+- **Mesh** — the DG Tailscale net is the default Atalaya hub-to-node transport for users who want it; ntfy + LAN-only paths for users who don't.
+
+### Federated package strategy
+
+DG's pattern for sharing code across apps is **federated packages, not a giant monorepo**. The proof exists today: `cipherware-sdk-android` lives in its own repo, Connect consumes it as a published artifact, Atalaya will too. That's the same pattern we apply going forward:
+
+1. New shared code lives **internal to its first consuming app** (Atalaya's `packages/` for now).
+2. When a second DG app wants the package, **extract it to its own repo** under DigitalGnosis, publish to a Maven artifact server, both apps depend on it by version.
+3. Apps stay self-contained. Shared DNA propagates through versioned dependencies.
+
+See [ADR-0009](docs/phase-1/decisions/ADR-0009-federated-package-strategy.md) for the committed decision.
+
+### DG brand language — TBD
+
+There is **no DG-wide brand spec yet** — no canonical color palette, typography, voice tone, logo treatment, or icon language shared across DG products. Each existing app has its own theme decisions made in isolation.
+
+Atalaya's `core-ui-theme` will start with **Material 3 defaults** (using the Material 3 You dynamic color where available, with a placeholder neutral palette as fallback). When DG defines a brand, the theme module is the single point of update — all Atalaya apps inherit. This is also one of the first packages we'd extract to a DG-shared repo (`dg-ui-theme`) so Connect, Route 33, Dispatch, and future apps inherit one DG brand the moment it lands.
+
+Defining the brand is a Digital Gnosis (founder + design) deliverable, not an Atalaya engineering deliverable. Tracked as an open question; surfaced as a GitHub issue.
+
+---
+
 ## Hardware Substrate: The "Weaponized Android" Inventory
 
 A single Android phone exposes:

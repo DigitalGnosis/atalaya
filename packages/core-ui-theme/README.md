@@ -4,15 +4,23 @@ Atalaya's Material 3 theme. Colors, typography, dimensions, dark/light schemes. 
 
 **Phase:** 1 (current)
 **Stack:** Kotlin + Compose Material 3
-**Status:** 🔵 skeleton
+**Status:** 🔵 skeleton — placeholder palette, awaiting DG brand spec
+
+## ⚠️ DG brand is not yet defined
+
+There is **no canonical DG brand spec** — no agreed color palette, typography, voice, or logo across Digital Gnosis products. This module ships with Material 3 defaults (Material You dynamic where available, neutral fallback otherwise) until the founder + design define the DG brand.
+
+When the brand lands, this module becomes the single point of update; every consuming Atalaya app inherits. Likely first candidate to extract into a DG-shared `dg-ui-theme` published repo so Connect, Route 33, Dispatch, etc. all inherit one DG brand simultaneously. See [ARCHITECTURE.md → DG brand language](../../ARCHITECTURE.md#dg-brand-language--tbd) for context.
+
+Tracked as an open question in [`docs/phase-1/README.md`](../../docs/phase-1/README.md).
 
 ## What it owns
 
-- Light + dark color schemes (Material 3 dynamic + brand-locked variants)
-- Typography (Material 3 type scale + brand customizations)
+- Light + dark color schemes (Material 3 dynamic + neutral fallback for Phase 1; brand-locked variants when DG brand lands)
+- Typography (Material 3 type scale; brand customizations TBD)
 - Dimensions (spacing scale, corner radii, elevation)
 - A `AtalayaTheme` Composable that wraps `MaterialTheme` with our defaults
-- Brand assets that Compose consumes — primary color, accent, surface tints
+- Brand tokens — currently neutral placeholders; replaced when DG brand lands
 
 ## What it does NOT own
 

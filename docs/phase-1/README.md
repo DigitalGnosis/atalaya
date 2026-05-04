@@ -45,6 +45,7 @@ Ship a working Atalaya node — a single Android phone running the watcher daemo
 | 0006 | Push transport — pluggable AlertTransport, Phase 1 ships local-only | ✅ accepted | [`decisions/ADR-0006-push-transport.md`](decisions/ADR-0006-push-transport.md) |
 | 0007 | Min SDK 26, target SDK 35, sticky FGS with camera\|microphone | ✅ accepted | [`decisions/ADR-0007-min-sdk-and-service.md`](decisions/ADR-0007-min-sdk-and-service.md) |
 | 0008 | DI — Hilt | ✅ accepted | [`decisions/ADR-0008-di-hilt.md`](decisions/ADR-0008-di-hilt.md) |
+| 0009 | Federated package strategy | ✅ accepted | [`decisions/ADR-0009-federated-package-strategy.md`](decisions/ADR-0009-federated-package-strategy.md) |
 
 ## Module specs
 
@@ -80,9 +81,15 @@ Copy from [`01-goal.md`](01-goal.md). Briefly:
 - Cloud option (Phase 5)
 - Hardware integrations (Phase 6)
 
+## Open questions (need founder / design input)
+
+- **DG brand language is undefined.** No canonical color palette, typography, voice, or logo across DG products. Atalaya's `core-ui-theme` ships with Material 3 defaults until a brand spec lands. Tracked separately; this is a Digital Gnosis (founder + design) deliverable, not Atalaya engineering.
+- **Default frame interval** (deferred via ADR-0004) — needs real device benchmarks once a working node lands.
+
 ## Risk register (Phase 1 specific)
 
 - **Battery damage from always-on camera + inference.** Mitigation: configurable frame interval, charge-aware throttle, document recommended duty cycles.
 - **Inference latency on older phones.** Mitigation: E2B not E4B for v1, document min recommended chipset.
 - **False positives confusing users.** Mitigation: confidence threshold, sample-and-show test mode, "is this a real alert?" feedback in v1.1.
 - **APK distribution before F-Droid listing.** Mitigation: ship signed APKs from GitHub Releases, document install steps.
+- **No DG brand spec yet.** Mitigation: ship neutral Material 3 defaults; theme module designed for one-line swap when brand lands.

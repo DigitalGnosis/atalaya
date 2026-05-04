@@ -25,8 +25,10 @@ Observability for Atalaya. Wraps CipherWare so every Atalaya component emits spa
 
 | On | Why |
 |----|-----|
-| `cipherware-android` | Kotlin SDK for emitting spans to CipherWare |
+| [`cipherware-sdk-android`](https://github.com/DigitalGnosis/cipherware-sdk-android) | The DG-published Kotlin SDK. We CONSUME this — we do not write a new client. |
 | `kotlinx.coroutines` | Async span emission |
+
+`cipherware-sdk-android` is a separate DG-owned repo that already ships the Kotlin SDK Connect uses today. Atalaya pulls the same artifact by version. This module is a thin facade over that SDK plus Atalaya-specific span naming conventions — nothing more.
 
 ## Why CipherWare
 

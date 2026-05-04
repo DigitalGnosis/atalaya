@@ -25,3 +25,4 @@ We use the [Michael Nygard ADR template](https://cognitect.com/blog/2011/11/15/d
 | 0006 | [Push transport](ADR-0006-push-transport.md) | accepted | M6 research |
 | 0007 | [Min/target SDK + foreground service strategy](ADR-0007-min-sdk-and-service.md) | accepted | M2 + M4 research |
 | 0008 | [DI framework — Hilt](ADR-0008-di-hilt.md) | accepted | M1 research |
+| 0009 | [Federated package strategy](ADR-0009-federated-package-strategy.md) | accepted | DG ecosystem context |
