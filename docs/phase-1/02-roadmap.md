@@ -84,17 +84,31 @@ The user can input a rule in the screen's settings. Each captured frame's descri
 
 Match → push notification (per ADR-0006). For Phase 1 the target is the same phone. Notification deep-links back to the app showing the matching frame thumbnail and description.
 
-### Step 9 — Hardening
+### Step 9 — Onboarding (normie-first polish)
 
-- Permissions flow (runtime camera, mic, post-notifications, foreground service type).
-- Onboarding for first model download.
+This step is load-bearing for the v1 audience and gets its own slice — not a hardening sub-bullet.
+
+- `core-onboarding` package per [`modules/core-onboarding.md`](modules/core-onboarding.md) — primitives, persistence, skip-all toggle.
+- First-launch tutorial: welcome card → "what Atalaya does in 30 seconds" → permissions explainer chain.
+- Pre-built rule suggestions list ("alert me when a person is at the front door", "alert me when the door is open after 9 PM") with one-tap accept.
+- In-app model download UI with progress bar and clear "what's happening" copy.
+- Frame interval slider with three labeled presets — Battery saver / Balanced / Responsive — not a raw seconds field.
+- Persistent notification phrasing tuned for trust ("Atalaya is armed — tap to stop").
+- Alert detail screen with one-tap ✓ real / ✗ false alarm feedback.
+- Power-user escape hatch: settings toggle that hides all hints/tutorials.
+- Uninstall+reinstall path verified clean (no orphan permission state confusing the user).
+
+### Step 10 — Hardening
+
+- Permissions flow edge cases (denied → re-prompt with deep-link to settings, OEM-specific battery optimization screens).
 - Charge-aware throttle (slow down on battery, normal on charger).
-- Crash reporting (opt-in).
+- Crash reporting (opt-in only — surface in onboarding).
 - App updates / version pinning.
+- Build manufacturer-aware OEM-kill mitigation onboarding screen (per ADR-0007).
 
-### Step 10 — Release
+### Step 11 — Release
 
-Build a signed APK. Tag `v1.0.0`. Publish via GitHub Releases. Document the install procedure.
+Build a signed APK. Tag `v1.0.0`. Publish via GitHub Releases. F-Droid metadata submitted in parallel (review takes weeks). Install procedure documented for normies — screenshots, no terminal.
 
 ## Daily rhythm
 

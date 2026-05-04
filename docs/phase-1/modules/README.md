@@ -14,10 +14,11 @@ Real implementation lives under `apps/` and `packages/`. Specs in this directory
 | Module | Spec | Lives in (target) | Status |
 |--------|------|-------------------|--------|
 | `core-protocol` (wire types) | [`EXAMPLE-core-protocol.md`](EXAMPLE-core-protocol.md) | `packages/core-protocol/` | example shape |
-| `core-rules` | _(stub — opens after M5 research)_ | `packages/core-rules/` | pending |
-| `core-ml` | _(stub — opens after M4 research)_ | `packages/core-ml/` | pending |
-| `core-sensors` | _(stub — opens after M3 research)_ | `packages/core-sensors/` | pending |
-| `apps/node` (camera role) | _(stub — opens after M2/M3/M4 land)_ | `apps/node/` | pending |
+| `core-onboarding` (hints + tutorials) | [`core-onboarding.md`](core-onboarding.md) | `packages/core-onboarding/` | drafted |
+| `core-rules` | _(stub — opens during Step 2)_ | `packages/core-rules/` | pending |
+| `core-ml` | _(stub — opens during Step 2)_ | `packages/core-ml/` | pending |
+| `core-sensors` | _(stub — opens during Step 2)_ | `packages/core-sensors/` | pending |
+| `apps/node` (camera role) | _(stub — opens during Step 2)_ | `apps/node/` | pending |
 
 ## Template
 
