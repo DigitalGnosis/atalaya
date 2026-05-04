@@ -8,79 +8,89 @@ The dependency graph between Atalaya's apps and packages. GitHub renders Mermaid
 graph TD
     classDef app fill:#1e40af,stroke:#3b82f6,color:#fff
     classDef pkg fill:#065f46,stroke:#10b981,color:#fff
+    classDef ui fill:#0e7490,stroke:#06b6d4,color:#fff
+    classDef obs fill:#92400e,stroke:#f59e0b,color:#fff
     classDef leaf fill:#7c2d12,stroke:#f59e0b,color:#fff
 
     Node["apps/node<br/>(camera role)"]:::app
 
-    Onboarding["packages/core-onboarding<br/>(hints + tutorials)"]:::pkg
-    Rules["packages/core-rules<br/>(NL rule engine)"]:::pkg
-    ML["packages/core-ml<br/>(Gemma inference)"]:::pkg
-    Sensors["packages/core-sensors<br/>(sensor interfaces)"]:::pkg
-    UIBase["packages/core-ui-base<br/>(BaseViewModel)"]:::pkg
-    Protocol["packages/core-protocol<br/>(wire types)"]:::leaf
+    Onboarding["core-onboarding<br/>(hints + tutorials)"]:::pkg
+    Rules["core-rules<br/>(NL rule engine)"]:::pkg
+    ML["core-ml<br/>(Gemma inference)"]:::pkg
+    Sensors["core-sensors<br/>(sensor interfaces)"]:::pkg
+    Observability["core-observability<br/>(CipherWare wrapper)"]:::obs
+    UIBase["core-ui-base<br/>(BaseViewModel)"]:::ui
+    UITheme["core-ui-theme<br/>(Material 3 theme)"]:::ui
+    UIComp["core-ui-components<br/>(shared composables)"]:::ui
+    Protocol["core-protocol<br/>(wire types)"]:::leaf
 
     Node --> Onboarding
     Node --> Rules
     Node --> ML
     Node --> Sensors
+    Node --> Observability
     Node --> UIBase
+    Node --> UITheme
+    Node --> UIComp
     Node --> Protocol
 
     Rules --> Protocol
     Rules --> ML
+    Rules --> Observability
+
+    ML --> Observability
 
     Onboarding --> Protocol
+
     Sensors --> Protocol
+
+    UIComp --> UITheme
+    UIComp --> Onboarding
+    UIComp --> Protocol
+
     UIBase --> Protocol
 ```
 
-**Read top-down.** `apps/node` depends on every package. The packages depend only on `core-protocol` (the leaf), and `core-rules` additionally depends on `core-ml` because rule evaluation calls into the LLM judge.
+**Read top-down.** `apps/node` depends on every package. The leaf is `core-protocol`. The `core-ui-*` family forms its own subgraph: components consume theme + onboarding + protocol; theme is a pure leaf within UI. `core-observability` is consumed by everything that emits spans (the watcher in node, inference in ml, evaluation in rules).
 
 ## Phase 2 expansion (preview)
 
 ```mermaid
 graph TD
     classDef app fill:#1e40af,stroke:#3b82f6,color:#fff
-    classDef pkg fill:#065f46,stroke:#10b981,color:#fff
-    classDef leaf fill:#7c2d12,stroke:#f59e0b,color:#fff
     classDef new fill:#7c1d6f,stroke:#d946ef,color:#fff
 
     Node["apps/node"]:::app
     Hub["apps/hub (NEW)"]:::new
     Web["apps/hub-web (NEW)"]:::new
 
-    Onboarding["packages/core-onboarding"]:::pkg
-    Rules["packages/core-rules"]:::pkg
-    ML["packages/core-ml"]:::pkg
-    Sensors["packages/core-sensors"]:::pkg
-    UIBase["packages/core-ui-base"]:::pkg
-    Protocol["packages/core-protocol"]:::leaf
-    Transport["packages/core-transport (NEW)"]:::new
+    P1["Phase 1 packages<br/>(see graph above)"]
+    Network["core-network (NEW)<br/>HTTP wrapper"]:::new
+    Auth["core-auth (NEW)<br/>sessions, tokens"]:::new
+    Middleware["core-middleware (NEW)<br/>interceptors"]:::new
+    Transport["core-transport (NEW)<br/>FCM/ntfy/DispatchTransport"]:::new
+    Storage["core-storage (NEW)<br/>persistence abstraction"]:::new
 
-    Node --> Onboarding
-    Node --> Rules
-    Node --> ML
-    Node --> Sensors
-    Node --> UIBase
+    Node --> P1
+    Node --> Network
+    Node --> Auth
     Node --> Transport
-    Node --> Protocol
 
-    Hub --> Rules
-    Hub --> ML
+    Hub --> P1
+    Hub --> Network
+    Hub --> Auth
+    Hub --> Middleware
     Hub --> Transport
-    Hub --> Protocol
+    Hub --> Storage
 
-    Web --> Protocol
+    Web --> Network
+    Web --> Auth
 
-    Transport --> Protocol
-    Rules --> Protocol
-    Rules --> ML
-    Onboarding --> Protocol
-    Sensors --> Protocol
-    UIBase --> Protocol
+    Network --> Middleware
+    Transport --> Network
 ```
 
-Phase 2 introduces `apps/hub`, `apps/hub-web`, and a new `packages/core-transport` for FCM / ntfy / DispatchTransport implementations of the `AlertTransport` interface.
+Phase 2 introduces five new packages — `core-network`, `core-auth`, `core-middleware`, `core-transport` (real `AlertTransport` impls), and `core-storage`. Plus `apps/hub` and `apps/hub-web`. The Phase 1 packages all carry forward unchanged.
 
 ## Folder layout (current state on disk)
 
@@ -109,7 +119,16 @@ atalaya/
 │   ├── core-sensors/                ← sensor interfaces
 │   │   ├── README.md
 │   │   └── src/main/kotlin/
-│   └── core-ui-base/                ← BaseViewModel from Bitwarden
+│   ├── core-observability/          ← CipherWare wrapper
+│   │   ├── README.md
+│   │   └── src/main/kotlin/
+│   ├── core-ui-base/                ← BaseViewModel from Bitwarden
+│   │   ├── README.md
+│   │   └── src/main/kotlin/
+│   ├── core-ui-theme/               ← Material 3 theme
+│   │   ├── README.md
+│   │   └── src/main/kotlin/
+│   └── core-ui-components/          ← shared composables
 │       ├── README.md
 │       └── src/main/kotlin/
 │
