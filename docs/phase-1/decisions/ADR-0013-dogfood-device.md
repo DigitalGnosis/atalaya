@@ -1,9 +1,11 @@
 ---
 adr: 0013
 title: First dogfood device — Samsung Galaxy S21 (pending physical confirmation)
-status: accepted
+status: superseded by ADR-0014
 date: 2026-05-04
 ---
+
+> ⚠️ **Superseded by [ADR-0014](ADR-0014-dogfood-device-correction.md).** This ADR contained an unverified claim that the Galaxy S21's Snapdragon 888 supports llama.rn's Hexagon HTP NPU path. **It does not.** Snapdragon 888 has Hexagon V68; llama.rn requires V69+. The S21 is still a valid dogfood device but for different reasons — ADR-0014 has the corrected reasoning.
 
 # ADR-0013 — First dogfood device
 

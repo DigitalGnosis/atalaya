@@ -49,7 +49,8 @@ Ship a working Atalaya node — a single Android phone running the watcher daemo
 | 0010 | Mesh strategy — Headscale + WireGuard (Phase 2 impl) | ✅ accepted | [`decisions/ADR-0010-mesh-strategy.md`](decisions/ADR-0010-mesh-strategy.md) |
 | 0011 | APK signing key custody — BWS DG-Shared | ✅ accepted | [`decisions/ADR-0011-signing-key-custody.md`](decisions/ADR-0011-signing-key-custody.md) |
 | 0012 | Crash reporting — self-hosted Sentry, opt-in | ✅ accepted | [`decisions/ADR-0012-crash-reporting.md`](decisions/ADR-0012-crash-reporting.md) |
-| 0013 | First dogfood device — Galaxy S21 | ✅ accepted (pending physical confirmation) | [`decisions/ADR-0013-dogfood-device.md`](decisions/ADR-0013-dogfood-device.md) |
+| 0013 | First dogfood device — Galaxy S21 | ⚠️ superseded by ADR-0014 | [`decisions/ADR-0013-dogfood-device.md`](decisions/ADR-0013-dogfood-device.md) |
+| 0014 | Dogfood device correction — S21 exercises CPU/OpenCL, NOT NPU | ✅ accepted | [`decisions/ADR-0014-dogfood-device-correction.md`](decisions/ADR-0014-dogfood-device-correction.md) |
 
 ## Module specs
 
