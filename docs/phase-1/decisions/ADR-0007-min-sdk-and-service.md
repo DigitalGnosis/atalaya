@@ -1,9 +1,13 @@
 ---
 adr: 0007
 title: Min SDK 26, target SDK 35 — sticky foreground service with camera|microphone type
-status: accepted
+status: partial (pivot affects scope)
 date: 2026-05-04
 ---
+
+> ## ⚠️ PARTIAL — pivot in progress
+>
+> The foreground service shape (sticky, `camera|microphone` type, START_STICKY, PARTIAL_WAKE_LOCK, OEM-kill mitigation) is still right. The Min SDK 26 floor may relax now that the phone does less work (no on-device inference). New ADR may supersede or amend this once pivot research lands. See [`HANDOFF.md`](../../../HANDOFF.md). Service-shape parts of this ADR are still actionable; SDK-floor parts are under review.
 
 # ADR-0007 — Min SDK + foreground service strategy
 

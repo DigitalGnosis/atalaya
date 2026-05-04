@@ -1,5 +1,9 @@
 # Phase 1 — Roadmap
 
+> ## ⚠️ ROADMAP PAUSED — pivot in progress
+>
+> Vertical slice work is paused after the founder caught the on-device-inference flaw on 2026-05-04. The roadmap below described the **old** architecture (phones running Gemma locally). The pivot to **phones-as-sensors, hub-as-brain** redesigns Phase 1's slices entirely. New roadmap lands after the seven research items in [`research/PIVOT-RESEARCH.md`](research/PIVOT-RESEARCH.md) close out. See [`../../HANDOFF.md`](../../HANDOFF.md) for the full picture.
+
 The ordered build plan. Each step links to its research note, the ADR(s) it produces, and the module(s) it lands.
 
 ## The arc

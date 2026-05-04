@@ -1,9 +1,13 @@
 ---
 adr: 0003
 title: Inference runtime — llama.rn JNI extracted (Gemma 4 E2B Q4_K_M + F16 mmproj)
-status: accepted
+status: stale (pivot in progress)
 date: 2026-05-04
 ---
+
+> ## ⚠️ STALE — pivot in progress
+>
+> This ADR placed inference on the phone via llama.rn JNI. That's wrong — old phones can't run Gemma 4 well. Pivoting to **hub-side inference**. New ADR will supersede this one once research lands. See [`HANDOFF.md`](../../../HANDOFF.md) and [`../research/PIVOT-RESEARCH.md`](../research/PIVOT-RESEARCH.md). **Do not act on this ADR.**
 
 # ADR-0003 — Inference runtime
 

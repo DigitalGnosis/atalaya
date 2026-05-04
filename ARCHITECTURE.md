@@ -1,8 +1,12 @@
 # Atalaya — DIY AI Security System on Old Phones
 
+> ## ⚠️ ARCHITECTURE PIVOT IN PROGRESS — 2026-05-04
+>
+> The founder caught a flaw: the original architecture had **on-device Gemma 4 inference on old phones**, which the hardware can't actually do. We've pivoted to **phones-as-sensors, hub-as-brain.** Read [`HANDOFF.md`](HANDOFF.md) at the repo root before treating any of the document below as final. Sections about "phones running Gemma" are stale; sections about the product idea, modules, and DG ecosystem still stand.
+
 **Date:** 2026-05-04
 **Author:** Forge (Engineering)
-**Status:** Design draft, pre-build
+**Status:** Design draft, pivot in progress
 **Tagline:** Your old phones. Your security system. Your code. AI-native, multi-modal, self-hosted, open source. SimpliSafe meets Supabase.
 
 ---

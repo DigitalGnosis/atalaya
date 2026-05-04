@@ -1,8 +1,13 @@
 # Phase 1 — Single Camera Node, Local Gemma 4
 
-**Status:** 🔵 Open
+> ## ⚠️ PHASE 1 PAUSED — ARCHITECTURE PIVOT IN PROGRESS
+>
+> Founder caught the on-device-inference flaw. Phase 1's premise of "phone runs Gemma 4" doesn't hold. We're pivoting to **phones-as-sensors, hub-as-brain.** Vertical slice work is paused. Open items: see [`research/PIVOT-RESEARCH.md`](research/PIVOT-RESEARCH.md) for what to investigate before resuming. The full pivot context is at [`../../HANDOFF.md`](../../HANDOFF.md).
+
+**Status:** 🔴 Paused (pivot in progress)
 **Opened:** 2026-05-04
-**Time-box:** 4–6 weeks (3 days research per module, hard cap)
+**Paused:** 2026-05-04
+**Time-box:** TBD after pivot research lands
 **Companion to:** [`../PRD-PHASES.md`](../PRD-PHASES.md)
 
 ---

@@ -1,10 +1,14 @@
 ---
 adr: 0014
 title: Dogfood device correction — Galaxy S21 exercises CPU/OpenCL paths, NOT Hexagon HTP NPU
-status: accepted
+status: stale (pivot in progress)
 date: 2026-05-04
 supersedes: ADR-0013
 ---
+
+> ## ⚠️ STALE — pivot in progress
+>
+> This ADR debated which phone runs on-device inference. After the pivot, **no phone runs on-device inference at all** — inference moves to the hub. The dogfood device choice still matters but for completely different reasons (camera quality, mesh client behavior, OEM-kill stress test). New ADR will supersede this one when the corrected dogfood criteria are decided. See [`HANDOFF.md`](../../../HANDOFF.md).
 
 # ADR-0014 — Dogfood device correction
 
