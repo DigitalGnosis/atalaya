@@ -27,3 +27,4 @@ We use the [Michael Nygard ADR template](https://cognitect.com/blog/2011/11/15/d
 | 0008 | [DI framework — Hilt](ADR-0008-di-hilt.md) | accepted | M1 research |
 | 0009 | [Federated package strategy](ADR-0009-federated-package-strategy.md) | accepted | DG ecosystem context |
 | 0010 | [Mesh strategy — Headscale + WireGuard-Android](ADR-0010-mesh-strategy.md) | accepted (Phase 2 implementation) | Founder constraint: no Tailscale Inc dependency |
+| 0011 | [APK signing key custody — BWS DG-Shared](ADR-0011-signing-key-custody.md) | accepted | Pre-release lock-in |
