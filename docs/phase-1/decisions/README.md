@@ -18,10 +18,10 @@ We use the [Michael Nygard ADR template](https://cognitect.com/blog/2011/11/15/d
 | # | Title | Status | Triggered by |
 |---|-------|--------|--------------|
 | 0001 | [Monorepo layout](ADR-0001-monorepo-layout.md) | accepted | Phase 0 + opening of Phase 1 |
-| 0002 | View-layer convention (BaseViewModel pattern) | _pending M1_ | M1 research |
-| 0003 | Inference runtime selection | _pending M4_ | M4 research |
-| 0004 | Default frame interval | _pending M4_ | M4 benchmarks |
-| 0005 | Rule format | _pending M5_ | M5 research |
-| 0006 | Push transport | _pending M6_ | M6 research |
-| 0007 | Min/target SDK | _pending M2 + M4_ | M2 background-service + M4 inference compatibility |
-| 0008 | DI framework | _pending M1_ | M1 research likely lands on Hilt |
+| 0002 | [View-layer convention (BaseViewModel pattern)](ADR-0002-baseviewmodel-pattern.md) | accepted | M1 research |
+| 0003 | [Inference runtime selection](ADR-0003-inference-runtime.md) | accepted | M4 research |
+| 0004 | Default frame interval | deferred | Needs real device benchmarks |
+| 0005 | [Rule format](ADR-0005-rule-format.md) | accepted | M5 research |
+| 0006 | [Push transport](ADR-0006-push-transport.md) | accepted | M6 research |
+| 0007 | [Min/target SDK + foreground service strategy](ADR-0007-min-sdk-and-service.md) | accepted | M2 + M4 research |
+| 0008 | [DI framework — Hilt](ADR-0008-di-hilt.md) | accepted | M1 research |

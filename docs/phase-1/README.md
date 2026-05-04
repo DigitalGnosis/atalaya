@@ -22,31 +22,29 @@
 
 Ship a working Atalaya node — a single Android phone running the watcher daemon in the camera role. Phone snaps a frame every N seconds, runs it through local Gemma 4 E2B for scene description, evaluates the description against a natural-language rule the user wrote, and pushes a notification when the rule matches. No hub yet, no multi-modal confirmation, no fleet — one phone, one role, one rule. Real product, ships standalone.
 
-## Modules to research (M-prefixed for sort order)
+## Modules researched (M-prefixed for sort order)
 
-| ID | Module | Reference to port from | Stub |
-|----|--------|------------------------|------|
-| M1 | View-layer convention (BaseViewModel + state/event/effect) | [Bitwarden Android](https://github.com/bitwarden/android) | [`research/M1-bitwarden-baseviewmodel.md`](research/M1-bitwarden-baseviewmodel.md) |
-| M2 | Background service that survives Android battery optimization | [Haven MonitorService](https://github.com/guardianproject/haven), Tailscale Android client | [`research/M2-background-service.md`](research/M2-background-service.md) |
-| M3 | Camera capture loop | CameraX official samples, Termux:API MicRecorderAPI as a sibling reference | [`research/M3-camerax.md`](research/M3-camerax.md) |
-| M4 | Local Gemma 4 inference on Android | [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai), [Google AI Edge Gallery](https://github.com/google-ai-edge/gallery), [llama.cpp Android](https://github.com/ggml-org/llama.cpp/blob/master/docs/android.md) | [`research/M4-local-gemma.md`](research/M4-local-gemma.md) |
-| M5 | Natural-language rule engine | None — designed in this phase | [`research/M5-rule-engine.md`](research/M5-rule-engine.md) |
-| M6 | Push notification pipeline | Bitwarden Android FCM | [`research/M6-push.md`](research/M6-push.md) |
+| ID | Module | Reference to port from | Status | Note |
+|----|--------|------------------------|--------|------|
+| M1 | View-layer convention (BaseViewModel + state/event/effect) | [Bitwarden Android](https://github.com/bitwarden/android) | ✅ findings | [`research/M1-bitwarden-baseviewmodel.md`](research/M1-bitwarden-baseviewmodel.md) |
+| M2 | Background service that survives Android battery optimization | [Haven MonitorService](https://github.com/guardianproject/haven), Tailscale Android client | ✅ findings | [`research/M2-background-service.md`](research/M2-background-service.md) |
+| M3 | Camera capture loop | CameraX official samples, Termux:API MicRecorderAPI as a sibling reference | ⚪ pending | [`research/M3-camerax.md`](research/M3-camerax.md) |
+| M4 | Local Gemma 4 inference on Android | [Off Grid](https://github.com/alichherawalla/off-grid-mobile-ai), [Google AI Edge Gallery](https://github.com/google-ai-edge/gallery), [llama.cpp Android](https://github.com/ggml-org/llama.cpp/blob/master/docs/android.md) | ✅ findings | [`research/M4-local-gemma.md`](research/M4-local-gemma.md) |
+| M5 | Natural-language rule engine | None — designed in this phase | ✅ findings | [`research/M5-rule-engine.md`](research/M5-rule-engine.md) |
+| M6 | Push notification pipeline | Bitwarden Android FCM | ✅ findings | [`research/M6-push.md`](research/M6-push.md) |
 
-## Decisions queue (ADR index)
-
-Each item below becomes its own ADR file when committed. Status `pending` means the question is open and research is still informing the answer.
+## Decisions (ADR index)
 
 | # | Question | Status | ADR |
 |---|----------|--------|-----|
-| 0001 | Monorepo layout — Now in Android style or alternative | ✅ committed | [`decisions/ADR-0001-monorepo-layout.md`](decisions/ADR-0001-monorepo-layout.md) |
-| 0002 | View-layer convention (BaseViewModel pattern) | 🔵 pending M1 | _(opens after M1 research)_ |
-| 0003 | Inference runtime — llama.cpp Android JNI vs MediaPipe LLM Inference vs Off Grid's runtime | 🔵 pending M4 | _(opens after M4 research)_ |
-| 0004 | Default frame interval (3s, 5s, 10s, 30s) | 🔵 pending M4 | _(opens after we measure inference latency)_ |
-| 0005 | Rule format — DSL vs LLM-evaluated NL string | 🔵 pending M5 | _(opens after M5 research)_ |
-| 0006 | Push transport — FCM-only or FCM + ntfy | 🔵 pending M6 | _(opens after M6 research)_ |
-| 0007 | Min SDK / target SDK | 🔵 pending M2 + M4 | _(opens after we know what background-service and inference need)_ |
-| 0008 | DI — Hilt or alternative | 🔵 pending M1 | _(opens after M1 — Bitwarden uses Hilt, default likely lands there)_ |
+| 0001 | Monorepo layout — Now in Android style or alternative | ✅ accepted | [`decisions/ADR-0001-monorepo-layout.md`](decisions/ADR-0001-monorepo-layout.md) |
+| 0002 | View-layer convention (BaseViewModel pattern) | ✅ accepted | [`decisions/ADR-0002-baseviewmodel-pattern.md`](decisions/ADR-0002-baseviewmodel-pattern.md) |
+| 0003 | Inference runtime — llama.rn JNI extracted, Gemma 4 E2B Q4_K_M + F16 mmproj | ✅ accepted | [`decisions/ADR-0003-inference-runtime.md`](decisions/ADR-0003-inference-runtime.md) |
+| 0004 | Default frame interval (3s, 5s, 10s, 30s) | 🟡 deferred | _(needs real device benchmarks; opens once we have a working node)_ |
+| 0005 | Rule format — NL condition with structured envelope | ✅ accepted | [`decisions/ADR-0005-rule-format.md`](decisions/ADR-0005-rule-format.md) |
+| 0006 | Push transport — pluggable AlertTransport, Phase 1 ships local-only | ✅ accepted | [`decisions/ADR-0006-push-transport.md`](decisions/ADR-0006-push-transport.md) |
+| 0007 | Min SDK 26, target SDK 35, sticky FGS with camera\|microphone | ✅ accepted | [`decisions/ADR-0007-min-sdk-and-service.md`](decisions/ADR-0007-min-sdk-and-service.md) |
+| 0008 | DI — Hilt | ✅ accepted | [`decisions/ADR-0008-di-hilt.md`](decisions/ADR-0008-di-hilt.md) |
 
 ## Module specs
 
