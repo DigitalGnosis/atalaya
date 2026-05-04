@@ -1,0 +1,66 @@
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editors
+.idea/
+.vscode/
+*.iml
+
+# Build outputs
+build/
+target/
+dist/
+out/
+*.apk
+*.aab
+*.so
+
+# Gradle
+.gradle/
+local.properties
+
+# Node
+node_modules/
+.next/
+.nuxt/
+.cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# Models (don't commit GGUF / ONNX / TF Lite — pull at runtime)
+*.gguf
+*.onnx
+*.tflite
+*.bin
+*.safetensors
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+secrets/
+credentials/
+
+# Logs / runtime
+*.log
+logs/
+*.pid
+*.sqlite
+*.db
+
+# Coverage
+coverage/
+.nyc_output/

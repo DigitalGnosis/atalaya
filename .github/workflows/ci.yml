@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-docs:
+    name: Lint docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check no trailing whitespace
+        run: |
+          ! grep -rEn ' +$' --include='*.md' --include='*.yml' --include='*.kt' --include='*.py' .
+      - name: Check required top-level files
+        run: |
+          for f in README.md LICENSE CONTRIBUTING.md SECURITY.md ARCHITECTURE.md; do
+            test -f "$f" || { echo "Missing required file: $f"; exit 1; }
+          done
+
+  # Phase 1+ jobs land here as apps/ fill in.
+  # node-app:
+  #   runs-on: ubuntu-latest
+  #   ...
