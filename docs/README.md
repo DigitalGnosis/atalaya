@@ -7,6 +7,7 @@ Welcome. This directory holds everything that isn't code.
 | Doc | What's inside |
 |-----|---------------|
 | [`../ARCHITECTURE.md`](../ARCHITECTURE.md) | The full system design. Three planes, role-based nodes, AI weaponization, competitive map. Read this first. |
+| [`MODULE-MAP.md`](MODULE-MAP.md) | Visual dependency graph between apps and packages. Mermaid diagrams + folder layout. |
 | [`PRD-PHASES.md`](PRD-PHASES.md) | The per-phase build plan. Goal, success criteria, research targets, time-box per phase. |
 | [`framework/`](framework/) | The phase documentation framework itself. Templates, conventions, how to start a new phase. |
 
